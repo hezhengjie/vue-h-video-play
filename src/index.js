@@ -1,6 +1,6 @@
 /**
  * Created by hugh on 16/12/26.
  */
-import DatePicker from './DatePicker'
+import VideoPlayer from './VideoPlayer.vue'
 
-export default DatePicker
+export default VideoPlayer

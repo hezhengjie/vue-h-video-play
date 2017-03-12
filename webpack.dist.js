@@ -5,8 +5,8 @@ module.exports = {
   output: {
     path: "./dist",
     publicPath: "/dist/",
-    filename: "vue-h-datepicker.js",
-    library: ["vueHDatePicker"],
+    filename: "vue-h-video-play.js",
+    library: ["vueHVideolPlay"],
     libraryTarget: "umd"
   },
   resolve: {
@@ -41,28 +41,16 @@ module.exports = {
       {
         test: /\.css$/,
         loader:"style!css!postcss!less"
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: ["url?limit=25000"]
       }
     ]
   }
 }
-
-// if (process.env.NODE_ENV === 'production') {
-//   module.exports.plugins = (module.exports.plugins || []).concat([
-//     new webpack.DefinePlugin({
-//       'process.env': {
-//         NODE_ENV: '"production"'
-//       }
-//     }),
-//     new webpack.optimize.UglifyJsPlugin({
-//       compress: {
-//         warnings: false
-//       }
-//     }),
-//     new webpack.optimize.OccurenceOrderPlugin()
-//   ])
-// }
 if (process.env.NODE_ENV === 'production') {
-  module.exports.output.filename = "vue-h-datepicker.min.js",
+  module.exports.output.filename = "vue-h-video-play.min.js";
       module.exports.plugins = [
         new webpack.DefinePlugin({
           'process.env': {
