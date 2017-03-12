@@ -257,9 +257,11 @@
                 let video=self.video;
                 //点击播放时加载视频
                 if(self.status==0){
-                    self.status = 1;//开始加载
-                    video.setAttribute("src",self.videoOption.source);
-                    video.play();
+                    if(self.videoOption.beforePlay && self.videoOption.beforePlay()) {
+                        self.status = 1;//开始加载
+                        video.setAttribute("src", self.videoOption.source);
+                        video.play();
+                    }
                 }
                 else if(self.status==3){ //暂停开始播放
                     self.status = 2;
