@@ -20,8 +20,8 @@ export default {
         width:'100%',
         height:'200px',
         poster:"https://p1.meituan.net/beautyimg/99f72f549af20dc99535d4ae2b5292d3154361.jpg",
-        source:'https://s3.meituan.net/v1/mss_80d691367d3045158769d28878d5cfd6/merchant-video/278655610e2e0840c176ffc29a011b5f.mp4',
-        playMode:'inline',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
+        source:'https://s3.meituan.net/v1/mss_80d691367d3045158769d28878d5cfd6/merchant-video/7d01905a16f4a6e0db4b4ac2894b743a.mp4',
+        playMode:'default',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
         playIcon:'default', //default or time
         time:'0:44',
         autoPlay:false,//true or false
