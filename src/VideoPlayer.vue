@@ -2,12 +2,12 @@
     <div class="h-video-play" :width="videoOption.width" :height="videoOption.height">
         <video  ref="video" :width="videoOption.width" :height="videoOption.height" @click="pause()"
                 x5-video-player-type="h5" x5-video-player-fullscreen="true"
-        :poster="option.poster">
+        :poster="videoOption.poster">
             您的浏览器不支持 video 标签。
         </video>
         <!--poster-->
         <div class="h-video-play-poster" :width="videoOption.width" :height="videoOption.height"  v-if="status==0">
-            <img :src="option.poster">
+            <img :src="videoOption.poster">
 
         </div>
         <!--播放icon-->
@@ -207,13 +207,22 @@
 </style>
 <script>
     export default {
-        props: ["option"],
+        props: ["option","poster","source","time"],
         data() {
             return {
                 plat:'android',
                 isLoading:false,
                 video:'',
-                videoOption:this.option,
+                videoOption:{
+                    width:'100%',
+                    height:'200px',
+                    poster:"https://p1.meituan.net/beautyimg/99f72f549af20dc99535d4ae2b5292d3154361.jpg",
+                    source:'https://s3.meituan.net/v1/mss_80d691367d3045158769d28878d5cfd6/merchant-video/7d01905a16f4a6e0db4b4ac2894b743a.mp4',
+                    playMode:'default',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
+                    playIcon:'time', //default or time
+                    time:'0:44',
+                    autoPlay:false//true or false
+                },
                 status:0  //video status,0-未播放,1-加载数据中,2-播放中,3-暂停
             }
         },
@@ -343,9 +352,20 @@
         mounted() {
             let self = this;
             self.video=self.$refs.video;
+            self.videoOption={
+                width:self.option.width||'100%',
+                height:self.option.height||'200px',
+                poster:self.poster||'',
+                source:self.source||'',
+                playMode:self.option.playMode||'default',
+                playIcon:self.option.playIcon||'default',
+                time:self.time||'0:00',
+                autoplay:self.option.autoplay||false,
+                beforePlay:self.option.beforePlay||function(){return true;}
+            };
             self.getUA();
             self.bind();
-            if(self.option.autoPlay){
+            if(self.videoOption.autoPlay){
                 self.autoPlay();
             }
         }
