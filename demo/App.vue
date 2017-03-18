@@ -13,7 +13,7 @@
     <p>
       自动播放模式
     </p>
-    <app-video-player :option="AutoPlay" :poster="poster" :source="source" :time="time"></app-video-player>
+    <app-video-player :option="optionAutoPlay" :poster="poster" :source="source"></app-video-player>
  </div>
  </template>
 <style>
@@ -31,7 +31,7 @@ export default {
         width:'100%',
         height:'200px',
         playMode:'default',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
-        playIcon:'time', //default or time
+        playIcon:'default', //default or time
         autoPlay:false,//true or false
         beforePlay:function(){
            //可以再这里加上是否是wifi环境的判断
@@ -53,7 +53,6 @@ export default {
         width:'100%',
         height:'200px',
         playMode:'default',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
-        playIcon:'time', //default or time
         autoPlay:false,//true or false
         beforePlay:function(){
           //可以再这里加上是否是wifi环境的判断
