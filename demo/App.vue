@@ -1,8 +1,19 @@
 <template>
   <div>
-    <app-video-player :option="option" :poster="poster" :source="source" :time="time">
+    <p>
+      默认模式
+    </p>
+    <app-video-player :option="optionDefault" :poster="poster" :source="source">
       <!--<div slot="playIcon">自定义icon</div>-->
     </app-video-player>
+    <p>
+      带时间的模式
+    </p>
+    <app-video-player :option="optionTime" :poster="poster" :source="source" :time="time"></app-video-player>
+    <p>
+      自动播放模式
+    </p>
+    <app-video-player :option="AutoPlay" :poster="poster" :source="source" :time="time"></app-video-player>
  </div>
  </template>
 <style>
@@ -16,7 +27,7 @@
 export default {
   data(){
     return {
-      option:{
+      optionDefault:{
         width:'100%',
         height:'200px',
         playMode:'default',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
@@ -24,6 +35,28 @@ export default {
         autoPlay:false,//true or false
         beforePlay:function(){
            //可以再这里加上是否是wifi环境的判断
+          return true;
+        }
+      },
+      optionTime:{
+        width:'100%',
+        height:'200px',
+        playMode:'default',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
+        playIcon:'time', //default or time
+        autoPlay:false,//true or false
+        beforePlay:function(){
+          //可以再这里加上是否是wifi环境的判断
+          return true;
+        }
+      },
+      optionAutoPlay:{
+        width:'100%',
+        height:'200px',
+        playMode:'default',//inline or fullScreen or defalut(默认行为ios 全屏,android行内)
+        playIcon:'time', //default or time
+        autoPlay:false,//true or false
+        beforePlay:function(){
+          //可以再这里加上是否是wifi环境的判断
           return true;
         }
       },

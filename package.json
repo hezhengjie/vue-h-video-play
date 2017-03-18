@@ -2,7 +2,7 @@
   "name": "vue-h-video-play",
   "version": "0.1.0",
   "description": "mobile video player",
-  "main": "./dist/vue-h-video-play.js",
+  "main": "./dist/vue-h-video-play.min.js",
   "author": "hugh<hzj727792893@gmail.com>",
   "scripts": {
     "dev": "webpack-dev-server --content-base demo/ --inline --hot",
